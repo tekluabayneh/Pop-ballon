@@ -37,6 +37,8 @@ create(): void {
     (this.player.body as Phaser.Physics.Arcade.Body).allowGravity = false;
     this.player.setCollideWorldBounds(true);
 
+
+        //@ts-ignore
     this.cursor = this.input.keyboard?.createCursorKeys();
     this.balloons = this.physics.add.group();
 
@@ -44,14 +46,15 @@ create(): void {
     this.RemaningtimeText = this.add.text(10, 30, `Remaining time: ${this.Remaningtime}`, { fontSize: "20px" });
 
     this.physics.add.overlap(this.player, this.balloons, (arrow, balloon) => {
+            //@ts-ignore
+        console.log(arrow.active)
         balloon.destroy();
         this.Score++;
         this.TextScore.setText(`Score: ${this.Score}`);
     });
 
     // Balloon spawn
-    this.time.addEvent({
-        delay: 400,
+    this.time.addEvent({ delay: 400,
         callback: this.spawnBalloon,
         callbackScope: this,
         loop: true,

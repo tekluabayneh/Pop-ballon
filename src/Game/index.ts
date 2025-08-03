@@ -8,7 +8,6 @@ height:500
 }
 
 
-
 const config:Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: size.width,
@@ -18,8 +17,7 @@ const config:Phaser.Types.Core.GameConfig = {
   physics: { 
     default: "arcade",
     arcade: {
-      gravity: { y: 300},
-      // debug: true
+      gravity: { y: 300, x:0}
     }
   }
 };
